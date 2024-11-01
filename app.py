@@ -63,10 +63,10 @@ class Mechanic(Base):
     __tablename__ = 'mechanics'
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str] = mapped_column(db.String(100), nullable=False)
-    author: Mapped[str] = mapped_column(db.String(100), nullable=False)
-    genre: Mapped[str] = mapped_column(db.String(50), nullable=False)
-    desc: Mapped[str] = mapped_column(db.String(300), nullable=False)
+    name: Mapped[str] = mapped_column(db.String(100), nullable=False)
+    email: Mapped[str] = mapped_column(db.String(100), nullable=False)
+    phone: Mapped[str] = mapped_column(db.String(20), nullable=False)
+    salary: Mapped[float] = mapped_column(db.Float(10), nullable=False)
 
     service_tickets: Mapped[List['ServiceTicket']] = db.relationship(secondary=service_tickets_mechanics, back_populates='mechanics') 
 
